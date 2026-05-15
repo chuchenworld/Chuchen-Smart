@@ -104,7 +104,9 @@ docker-compose.yml
 # Kubernetes
 *.yaml
 *.yml
-!backend/src/main/resources/application*.yml
+# 保留基础配置和生产配置，排除开发配置
+!backend/src/main/resources/application.yml
+!backend/src/main/resources/application-prod.yml
 
 # Claude
 .claude/
