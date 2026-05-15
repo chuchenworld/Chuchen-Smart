@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/chuchensmart?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+  # Redis configuration
+  data:
+    redis:
+      host: 115.29.169.132
+      port: 6379
+      password: root
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 0
+
+  ai:
+    dashscope:
+      # 阿里云百炼 API Key（需要替换为你的实际API Key）
+      api-key: sk-f1365f8b11a7403da82128c6f43eb00a
+
+      # 阿里云百炼 API Base URL
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+
+      # 聊天配置
+      chat:
+        options:
+          # 使用 qwen2.5-vl-72b-instruct 模型
+          model: qwen2.5-vl-72b-instruct
+          # 温度参数，0.0-2.0，越低越确定，越高越随机
+          temperature: 0.7
+          # 最大token数
+          max-tokens: 2048
+
+
+# 开发环境 OSS 配置（可选，如不需要可注释掉）
+ps:
+  alioss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    access-key-id: your_dev_access_key_id
+    access-key-secret: your_dev_access_key_secret
+    bucket-name: your_dev_bucket_name
+
+# 开发环境日志配置
+logging:
+  level:
+    com.example.chuchensmart: debug
+    org.springframework.web: debug
+
+    
